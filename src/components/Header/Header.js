@@ -5,8 +5,11 @@ class Header extends Component {
   render() {
     return (
        <div>
-           Header
+         Shelfie.img 
+         <button>Dashboard</button>
+         <button>Add Inventory</button>
        </div>
+       
     );
   }
 }

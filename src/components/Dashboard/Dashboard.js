@@ -11,6 +11,10 @@ class Dashboard extends Component {
     };
   }
 
+  updateproduct(newProducts) {
+    this.setState({ products: newProducts });
+  }
+
   componentDidMount() {
     this.getProducts();
   }
@@ -38,7 +42,7 @@ class Dashboard extends Component {
     return (
       <section>
         {products.map((product, index) => (
-          <Product products={this.state.products} key={index} product={product}/>
+          <Product products={this.state.products} key={product.id} product={product} updateproduct={this.updateproduct}/>
         ))}
         Dashboard
       </section>
