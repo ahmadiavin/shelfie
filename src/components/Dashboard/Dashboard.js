@@ -6,7 +6,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: [["WOW"]],
+      products: [],
       error: ""
     };
   }
@@ -17,12 +17,12 @@ class Dashboard extends Component {
 
   getProducts = () => {
     axios
-      .get("/api/products")
+      .get("/api/inventory")
       .then(res => {
         this.setState({
           products: res.data
         });
-        console.log("/api/products");
+        console.log("/api/inventory");
       })
       .catch(error => {
         console.log(error);

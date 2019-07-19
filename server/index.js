@@ -13,5 +13,7 @@ massive(process.env.CONNECTION_STRING).then(dbInstance => {
 }).catch(e => console.log(e));
 
 //my endpoints woo
+app.get("/api/inventory", controller.getAll)
+
 
 app.listen(process.env.SERVER_PORT, () => console.log(`listening on ${process.env.SERVER_PORT}!`));
