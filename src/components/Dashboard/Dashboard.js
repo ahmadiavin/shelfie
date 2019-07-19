@@ -9,6 +9,7 @@ class Dashboard extends Component {
       products: [],
       error: ""
     };
+    this.deleteProduct = this.deleteProduct.bind(this);
   }
 
   updateproduct(newProducts) {
@@ -36,13 +37,26 @@ class Dashboard extends Component {
       });
   };
 
+  deleteProduct(id) {
+    axios
+      .delete(`/api/product/${id}`)
+      .then(res => this.getProducts(res))
+      .catch(err => console.log("delete product axios error", err));
+  }
+
   render() {
     const { products } = this.state;
 
     return (
       <section>
         {products.map((product, index) => (
-          <Product products={this.state.products} key={product.id} product={product} updateproduct={this.updateproduct}/>
+          <Product
+            products={this.state.products}
+            key={product.id}
+            product={product}
+            updateproduct={this.updateproduct}
+            deleteProduct={this.deleteProduct}
+          />
         ))}
         Dashboard
       </section>

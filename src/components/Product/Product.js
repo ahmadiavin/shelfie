@@ -45,11 +45,7 @@ class Product extends Component {
             </div>
           </div>
           <div className="edit-delete-div">
-            <button onClick={() => {
-                Axios.delete(`/api/product/:id${this.props.id}`).then(res => {
-                    this.props.updateProduct(res.data);
-                })
-            }}>Delete</button>
+            <button onClick={this.props.deleteProduct}>Delete</button>
             <button onClick={this.handleEdit}>Edit</button>
           </div>
         </div>
@@ -59,3 +55,9 @@ class Product extends Component {
 }
 
 export default Product;
+
+// onClick={() => {
+//     Axios.delete(`/api/product/:id${this.props.id}`).then(res => {
+//         this.props.updateProduct(res.data);
+//     })
+// }}
